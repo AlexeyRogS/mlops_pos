@@ -1,20 +1,20 @@
 # mlops_pos
 A project that aims to create a well-organized ML pipeline for pose the estimation task.
 
-.
-├── Dockerfile
-├── README.md
-├── commands.py
-├── datasets
-├── poetry.lock
-├── pos_detection
-│   ├── __init__.py
-│   ├── infer.py
-│   ├── pose_drawer.py
-│   ├── pose_match.py
-│   └── train.py
-├── pyproject.toml
-└── test_imgs
+
+├── Dockerfile\
+├── README.md\
+├── commands.py\
+├── datasets\
+├── poetry.lock\
+├── pos_detection\
+│   ├── __init__.py\
+│   ├── infer.py\
+│   ├── pose_drawer.py\
+│   ├── pose_match.py\
+│   └── train.py\
+├── pyproject.toml\
+└── test_imgs\
     └── game-streamer-tips.jpg
 
 Above is the basic structure of the project. commands.py allows to run train, infer and match_pose CLI. Source code is in pos_detection folder. Folder datasets is empty (datasets are not uploaded to the git). There is a test image in the test_imgs folder. You may run simply python match_pose and the program will draw simple sketch of the person on the test image.
