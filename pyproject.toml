@@ -8,6 +8,7 @@ authors = ["Rog Alexey Sergeevich <pizikxxx97@gmail.com>"]
 python = "^3.10.12"
 opencv-python = "^4.8.0"
 ultralytics = "8.1.27"
+numpy = "^1.25.2"
 
 [tool.poetry.dev-dependencies]
 ipykernel = "^5.5.0"
