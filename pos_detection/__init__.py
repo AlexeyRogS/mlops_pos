@@ -1,5 +1,6 @@
 from .infer import infer
-from .train import train
 from .pose_match import PoseMatcher
+from .train import train
+
 
 __all__ = ["infer", "train", "PoseMatcher"]

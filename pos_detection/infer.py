@@ -1,5 +1,6 @@
 from .model import YOLOL
 
+
 def infer(cfg, target=None, save=None):
     model_name = cfg.model.path or cfg.model.name
     model = YOLOL(model_name, mode='infer')

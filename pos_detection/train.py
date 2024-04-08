@@ -1,8 +1,13 @@
 import subprocess
+
 import lightning as L
+
 from .datasets import COCOL
+
 # from ultralytics import YOLO
 from .model import YOLOL, EarlyStopping
+
+
 # from lightning.pytorch.loggers import MLFlowLogger
 
 
@@ -15,6 +20,7 @@ from .model import YOLOL, EarlyStopping
 #     instance = YOLO(model)
 #     return instance.train(data=data, epochs=epochs, imgsz=imgsz)
 
+
 def train(cfg):
     model_name = cfg.model.path or cfg.model.name
     data = cfg.data.path or cfg.data.name
@@ -26,9 +32,8 @@ def train(cfg):
         patience=cfg.training.patience,
         batch=cfg.training.batch_size,
         imgsz=cfg.img_size,
-        workers=cfg.workers
+        workers=cfg.workers,
     )
-
 
     ds = COCOL(
         batch_size=cfg.training.batch_size,
@@ -39,10 +44,9 @@ def train(cfg):
     ds.setup()
 
     trainer = L.Trainer(
-        enable_checkpointing=False, logger=False,
-        callbacks=[EarlyStopping()]
+        enable_checkpointing=False, logger=False, callbacks=[EarlyStopping()]
     )
-    
+
     mlflow = subprocess.Popen("mlflow ui --backend-store-uri file:./runs/mlflow")
     trainer.fit(model=model, train_dataloaders=ds.train_dataloader())
     mlflow.wait()
@@ -71,7 +75,7 @@ def train(cfg):
 #     ds.setup()
 #     print(ds.args)
 
-    
+
 #     # model = YOLOL("yolov8n-pose.pt")
 #     # ds = COCOL()
 #     # ds.setup()
@@ -80,14 +84,11 @@ def train(cfg):
 #     # print(model.args.data)
 
 
-
 #     # trainer.fit(model=model, train_dataloaders=ds.train_dataloader())
-    
+
 #     # print(model("test_imgs/game-streamer-tips.jpg"))
-    
+
 #     batch = next(iter((ds.train_dataloader())))
 #     print(batch['img'])
 #     # result = model(batch)
 #     # print(result)
-
-

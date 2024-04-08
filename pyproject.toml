@@ -28,6 +28,13 @@ ensure_newline_before_comments = true
 line_length = 90
 lines_after_imports = 2
 
+[tool.flake8]
+max-line-length = 90
+ignore = ['E203', 'E501', 'W503', 'B950']
+max-complexity = 12
+select = ['B', 'C', 'E', 'F', 'W', 'B9']
+count = true
+
 [tool.pylint.messages_control]
 disable = "C0330, C0326"
 
