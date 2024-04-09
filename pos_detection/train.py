@@ -9,7 +9,7 @@ from .model import YOLOL, EarlyStopping
 def train(cfg):
     model_name = cfg.model.path or cfg.model.name
     data = cfg.data.path or cfg.data.name
-    print(model_name)
+
     model = YOLOL(
         model_name,
         data=data,
