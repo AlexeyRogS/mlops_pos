@@ -7,4 +7,5 @@ RUN pip install poetry==1.8.2
 COPY commands.py poetry.lock pyproject.toml /usr/src/app
 COPY pos_detection /usr/src/app/pos_detection
 COPY test_imgs /usr/src/app/test_imgs
+COPY cfg /usr/src/app/cfg
 RUN poetry install

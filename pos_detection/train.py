@@ -32,6 +32,8 @@ def train(cfg):
         enable_checkpointing=False, logger=False, callbacks=[EarlyStopping()]
     )
 
-    mlflow = subprocess.Popen("mlflow ui --backend-store-uri file:./runs/mlflow")
+    mlflow = subprocess.Popen(
+        ["mlflow", "ui", "--host=0.0.0.0", "--backend-store-uri", "file:./runs/mlflow"]
+    )
     trainer.fit(model=model, train_dataloaders=ds.train_dataloader())
     mlflow.wait()

@@ -15,8 +15,6 @@ def run_matching(cfg):
 
 @hydra.main(config_path="cfg", config_name='config', version_base="1.3")
 def run(cfg: DictConfig):
-    # We simply print the configuration
-    print(cfg)
     if cfg['mode'] == 'train':
         train(cfg)
     elif cfg['mode'] == 'infer':
