@@ -16,4 +16,4 @@ matching:
   target: test_imgs/game-streamer-tips.jpg
 mode: train
 img_size: 640
-workers: 1
+workers: 0
