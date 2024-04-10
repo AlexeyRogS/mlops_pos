@@ -1,39 +1,39 @@
 # mlops_pos
 
 A project that aims to create a well-organized ML pipeline for the pose estimation task.
-
-.\
-├── Dockerfile \
-├── README.md \
-├── cfg \
-│   ├── config.yaml \
-│   ├── datasets \
-│   │   └── coco17-pose.yaml \
-│   └── models \
-│       └── yolov8-pose.yaml \
-├── commands.py \
-├── datasets \
-│   └── COCO \
-│       ├── images \
-│       └── labels \
-├── datasets.dvc \
-├── poetry.lock \
-├── pos_detection \
-│   ├── __init__.py \
-│   ├── datasets \
-│   │   ├── COCOL.py \
-│   │   └── __init__.py \
-│   ├── infer.py \
-│   ├── model \
-│   │   ├── YOLOL.py \
-│   │   ├── __init__.py \
-│   │   └── utils.py \
-│   ├── pose_drawer.py \
-│   ├── pose_match.py \
-│   └── train.py \
-├── pyproject.toml \
-└── test_imgs \
+```bash
+├── Dockerfile
+├── README.md
+├── cfg
+│   ├── config.yaml
+│   ├── datasets
+│   │   └── coco17-pose.yaml
+│   └── models
+│       └── yolov8-pose.yaml
+├── commands.py
+├── datasets
+│   └── COCO
+│       ├── images
+│       └── labels
+├── datasets.dvc
+├── poetry.lock
+├── pos_detection
+│   ├── __init__.py
+│   ├── datasets
+│   │   ├── COCOL.py
+│   │   └── __init__.py
+│   ├── infer.py
+│   ├── model
+│   │   ├── YOLOL.py
+│   │   ├── __init__.py
+│   │   └── utils.py
+│   ├── pose_drawer.py
+│   ├── pose_match.py
+│   └── train.py
+├── pyproject.toml
+└── test_imgs
     └── game-streamer-tips.jpg
+```
 
 Above is the basic structure of the project. commands.py allows to run train,
 infer and match_pose CLI. Source code is in pos_detection folder. Folder
