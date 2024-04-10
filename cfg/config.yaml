@@ -1,0 +1,19 @@
+data:
+  name: coco17
+  path: cfg/datasets/coco17-pose.yaml
+model:
+  name: yolov8n-pose.pt
+  path: null
+training:
+  batch_size: 32
+  epochs: 1000
+  patience: 100
+inference:
+  target: test_imgs/game-streamer-tips.jpg
+  save: True
+matching:
+  save_dir: runs/pose/match
+  target: test_imgs/game-streamer-tips.jpg
+mode: train
+img_size: 640
+workers: 0

@@ -1,17 +1,29 @@
-import fire
-from pos_detection import train, infer, PoseMatcher
+import hydra
+from omegaconf import DictConfig
+from ultralytics import settings
 
-def run_matching(model="yolov8n-pose.pt",
-                 save_dir="./runs/pose/match",
-                 img_path="./test_imgs/game-streamer-tips.jpg"):
-    matcher = PoseMatcher(model=model, save_dir=save_dir)
-    matcher.get_avatar_pose(img_path)
+from pos_detection import PoseMatcher, infer, train
+
+
+settings.update({'mlflow': True})
+
+
+def run_matching(cfg):
+    matcher = PoseMatcher(cfg)
+    matcher.get_avatar_pose(cfg.matching.target)
+
+
+@hydra.main(config_path="cfg", config_name='config', version_base="1.3")
+def run(cfg: DictConfig):
+    if cfg['mode'] == 'train':
+        train(cfg)
+    elif cfg['mode'] == 'infer':
+        infer(cfg)
+    elif cfg['mode'] == 'match_pose':
+        run_matching(cfg)
+    else:
+        raise NotImplementedError(f"Wrong mode {cfg.mode}")
+
 
 if __name__ == "__main__":
-    fire.Fire(
-        {
-            "train": train,
-            "infer": infer,
-            "match_pose": run_matching
-        }
-    )
+    run()

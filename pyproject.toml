@@ -6,13 +6,16 @@ authors = ["Rog Alexey Sergeevich <pizikxxx97@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10.12"
-opencv-python = "^4.8.0"
 ultralytics = "8.1.27"
+lightning = "^2.2.0"
+opencv-python = "^4.8.0"
+mlflow = "^2.11.3"
+hydra-core = "^1.3.2"
 numpy = "^1.25.2"
 
 [tool.poetry.dev-dependencies]
 ipykernel = "^5.5.0"
-fire = "^0.6.0"
+pre-commit = "^3.7.0"
 
 [tool.black]
 line-length = 90
@@ -27,6 +30,13 @@ use_parentheses = true
 ensure_newline_before_comments = true
 line_length = 90
 lines_after_imports = 2
+
+[tool.flake8]
+max-line-length = 90
+ignore = ['E203', 'E501', 'W503', 'B950']
+max-complexity = 12
+select = ['B', 'C', 'E', 'F', 'W', 'B9']
+count = true
 
 [tool.pylint.messages_control]
 disable = "C0330, C0326"

@@ -1,2 +1,7 @@
 tmp/
-datasets/
+raw_datasets/
+outputs/
+runs/
+*.pt
+**/__pycache__
+/datasets

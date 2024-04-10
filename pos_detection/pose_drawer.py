@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+
 class PoseDrawer:
     def __init__(self):
         pass
@@ -23,15 +24,11 @@ class PoseDrawer:
         x, y = points[2]
         cv2.circle(image, (int(x), int(y)), 10, 255, 6)
 
-
     def draw_body(self, points, image):
-        connect_paths = [
-            [10, 8, 6, 5, 7, 9],
-            [6, 12, 11, 5]
-        ]
+        connect_paths = [[10, 8, 6, 5, 7, 9], [6, 12, 11, 5]]
         for path in connect_paths:
-            for i in range(len(path)-1):
-                self._connect(path[i], path[i+1], points, image)
+            for i in range(len(path) - 1):
+                self._connect(path[i], path[i + 1], points, image)
 
     def _connect(self, n, m, points, image):
         x1, y1 = points[n]
